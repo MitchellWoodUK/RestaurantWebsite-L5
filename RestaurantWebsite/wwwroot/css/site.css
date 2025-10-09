@@ -16,3 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#banner{
+    background-image: url("../Images/banner.png");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+#bannertxt{
+    background-color: white;
+    color: red;
+}
