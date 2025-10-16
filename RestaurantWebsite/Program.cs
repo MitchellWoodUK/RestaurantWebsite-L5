@@ -1,7 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using RestaurantWebsite.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+//Linking the program to the connection string in appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+//Allow our db context to use the connection string
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
