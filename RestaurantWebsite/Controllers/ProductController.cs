@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RestaurantWebsite.Data;
+using RestaurantWebsite.Models;
 
 namespace RestaurantWebsite.Controllers
 {
@@ -14,9 +16,11 @@ namespace RestaurantWebsite.Controllers
         }
 
         //GET operation for the product index page
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //Retrieving all of the products from the database table
+            //Returning them to a list on the page
+            return View(await _context.Products.ToListAsync());
         }
 
 
@@ -25,5 +29,20 @@ namespace RestaurantWebsite.Controllers
         {
             return View();
         }
+
+        //POST operation to send the create data to the database
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductModel product)
+        {
+            //Add the new product to the products table
+            _context.Products.Add(product);
+
+            //Save the database changes
+            await _context.SaveChangesAsync();
+
+            //Redirect to the product index page
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
