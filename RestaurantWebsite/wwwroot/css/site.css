@@ -15,6 +15,7 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color:red;
 }
 
 #banner{
@@ -27,4 +28,9 @@ body {
 #bannertxt{
     background-color: white;
     color: red;
+}
+
+#menu{
+    background-color: aliceblue;
+
 }

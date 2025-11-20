@@ -34,14 +34,22 @@ namespace RestaurantWebsite.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ProductModel product)
         {
-            //Add the new product to the products table
-            _context.Products.Add(product);
 
-            //Save the database changes
-            await _context.SaveChangesAsync();
-
-            //Redirect to the product index page
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                //Add the new product to the products table
+                _context.Products.Add(product);
+                //Save the database changes
+                await _context.SaveChangesAsync();
+                //Redirect to the product index page
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                //Control what happens to the user if the model is not valid
+                //Send them back to the form with the validation errors
+                return View(product);
+            }
         }
 
     }
