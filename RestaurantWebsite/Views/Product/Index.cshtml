@@ -1,12 +1,23 @@
 ﻿@model IEnumerable<RestaurantWebsite.Models.ProductModel>
 
+
+
+<div id="banner-menu" class="d-flex justify-content-center align-items-center">
+    <h1 class="pb-5 text-black">MENU</h1>
+
+</div>
 <div class="container py-5">
-    <h1 class="pb-5">Products</h1>
 
     <div id="menu" class="rounded-4 p-5">
+        <div class="d-flex align-items-center mb-5">
+            <img src="~/Images/wine.png" class="w-25 me-4" />
+            <h1 class="title mb-0">MENU</h1>
+        </div>
+
+        <hr>
         @foreach (var product in Model)
         {
-            <div class="row d-flex">
+            <div class="row d-flex py-2">
                 <div class="col-5">
                     <h3>@product.Name</h3>
                 </div>
@@ -18,12 +29,13 @@
                 </div>
                 <div class="col-3">
                     <!--Add a edit and delete button here-->
-                    <button class="btn btn-primary">Edit</button>
+                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
                     <button class="btn btn-danger">Delete</button>
                 </div>
 
-                <hr>
+                
             </div>
+            <hr>
         }
     </div>
 </div>

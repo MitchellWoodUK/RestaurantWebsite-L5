@@ -14,12 +14,19 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color:red;
+    margin-bottom: 60px;
+    background-color: #EEEEEE;
 }
 
 #banner{
-    background-image: url("../Images/banner.png");
+    background-image: url("../Images/burgers.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+#banner-menu {
+    background-image: url("../Images/glasses.jpg");
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -30,7 +37,20 @@ body {
     color: red;
 }
 
-#menu{
-    background-color: aliceblue;
+#menu {
+    background-color: #ECDCBF;
+}
 
+
+header{
+   background-color: #A31D1D;
+}
+
+.navbar-brand, .nav-link {
+    color: #FFFFFF;
+}
+
+.title {
+    color: #A31D1D;
+    font-size: 4vw;
 }

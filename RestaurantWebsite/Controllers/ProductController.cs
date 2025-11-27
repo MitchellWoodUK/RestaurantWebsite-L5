@@ -52,5 +52,40 @@ namespace RestaurantWebsite.Controllers
             }
         }
 
+
+        //Get operation for the Edit page - Needs to collect and send the product id from the product index edit button.
+        public async Task<IActionResult> Edit(int? id)
+        {
+            //Find the product by id
+            var product = await _context.Products.FindAsync(id);
+
+            //Check if the product is found
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //Return the product to the view
+                return View(product);
+            }
+        }
+
+
+        //Post operation for the edit page.
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductModel product)
+        {
+            //Check if the product model is valid
+
+            //Save in the database
+
+
+        }
+
+
+
+
+
     }
 }
