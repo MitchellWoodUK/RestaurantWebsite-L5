@@ -1,0 +1,25 @@
+﻿@model IEnumerable<RestaurantWebsite.Models.ReviewModel>
+
+<div class="container">
+    <h2>Reviews</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Rating</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var review in Model)
+            {
+                <tr>
+                    <td>@review.Product.Name</td>
+                    <td>@review.Rating</td>
+                    <td>@review.Content</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

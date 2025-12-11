@@ -9,6 +9,7 @@ namespace RestaurantWebsite.Data
 
         //Below code creates the SQL Database tables
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<ReviewModel> Reviews { get; set; }
 
     }
 }

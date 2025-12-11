@@ -77,13 +77,37 @@ namespace RestaurantWebsite.Controllers
         public async Task<IActionResult> Edit(ProductModel product)
         {
             //Check if the product model is valid
-
-            //Save in the database
-
-
+            if (ModelState.IsValid)
+            {
+                //Save in the database
+                _context.Update(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(product);
+            }
         }
 
-
+        public async Task<IActionResult> Delete (int id)
+        {
+            //Id is being passed from the delete button in the product index.
+            //Find the correct product from the id
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //Delete product from database
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+          
+        }
 
 
 

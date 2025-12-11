@@ -30,7 +30,7 @@
                 <div class="col-3">
                     <!--Add a edit and delete button here-->
                     <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
-                    <button class="btn btn-danger">Delete</button>
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
                 </div>
 
                 
