@@ -28,6 +28,11 @@
                     <p>£@product.Price</p>
                 </div>
                 <div class="col-3">
+
+                    <a asp-action="Create" asp-controller="Review" asp-route-id="@product.Id" class="btn btn-success">Add Review</a>
+
+
+
                     <!--Add a edit and delete button here-->
                     <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
                     <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>

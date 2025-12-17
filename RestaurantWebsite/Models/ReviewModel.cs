@@ -20,7 +20,7 @@ namespace RestaurantWebsite.Models
         [Required]
         public int ProductId { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey(nameof(ProductId))]
         public ProductModel Product { get; set; }
     }
 }

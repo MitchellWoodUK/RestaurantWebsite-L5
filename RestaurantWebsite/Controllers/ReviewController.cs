@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantWebsite.Data;
+using RestaurantWebsite.Models;
 
 namespace RestaurantWebsite.Controllers
 {
@@ -24,5 +25,30 @@ namespace RestaurantWebsite.Controllers
             
             return View(reviews);
         }
+
+        //GET operation for the create review
+        public async Task<IActionResult> Create(int Id)
+        {
+            return View(Id);
+        }
+
+
+        [HttpPost]
+        //POST operation for the create review
+        public async Task<IActionResult> Create(ReviewModel review)
+        {
+            if (review == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _context.Reviews.Add(review);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+        }
+
+
     }
 }

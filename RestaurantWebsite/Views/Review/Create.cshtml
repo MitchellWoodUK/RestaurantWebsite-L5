@@ -1,0 +1,23 @@
+﻿@model int //Gathering the Id from the controller
+
+<div class="container">
+    <h2>Add a review for the product</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Rating">Rating</label>
+            <input id="Rating" name="Rating" type="number" min="1" max="5" class="form-control" placeholder="Rating (1 to 5)" />
+        </div>
+
+        <div class="form-group">
+            <label for="Content">Review</label>
+            <textarea id="Content" name="Content" class="form-control" placeholder="Write your review" ></textarea>
+        </div>
+
+        <!--Hidden field that passes the product ID back to the controller-->
+        <input type="hidden" name="ProductId" value="@Model" />
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>
